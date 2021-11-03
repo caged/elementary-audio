@@ -4,6 +4,9 @@
     ElementaryWebAudioRenderer as core,
     sugar,
   } from "@nick-thompson/elementary";
+  import VolumeSlider from "./VolumeSlider.svelte";
+  import TransportButton from "./TransportButton.svelte";
+  import Slider from "./Slider.svelte";
   import supersaw from "./supersaw";
   import { powered, gain, voices, spread, frequency } from "./store";
 
@@ -12,17 +15,6 @@
   let isReady = false;
   let shouldPlay = false;
   const dispatch = createEventDispatcher();
-
-  $: {
-    if (isReady && $powered && shouldPlay) {
-      const out = sugar(supersaw, {
-        voices: $voices,
-        spread: $spread,
-        frequency: $frequency,
-      });
-      core.render(out, out);
-    }
-  }
 
   core.on("load", (event) => {
     isReady = true;
@@ -63,13 +55,45 @@
       actx.suspend();
     }
   });
+
+  $: {
+    if (isReady && $powered && shouldPlay) {
+      const out = sugar(supersaw, {
+        voices: $voices,
+        spread: $spread,
+        frequency: $frequency,
+      });
+      core.render(out, out);
+    }
+  }
 </script>
 
 <div class="plugin">
-  <slot />
+  <div class="transport">
+    <TransportButton />
+    <VolumeSlider />
+  </div>
+  <div class="grid">
+    <Slider min="100" max="600" label="Frequency" bind:value={$frequency} />
+    <Slider min="1" max="10" label="Voices" bind:value={$voices} />
+    <Slider min="1" max="20" label="Spread" bind:value={$spread} />
+  </div>
 </div>
 
 <style>
-  .plugin {
+  .transport {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 10px;
+    background-color: #eee;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px;
   }
 </style>

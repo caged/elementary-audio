@@ -4,7 +4,7 @@ import {
 } from "@nick-thompson/elementary";
 
 // From https://docs.elementary.audio/guides/writing_reusable_components#memoization
-function supersaw({ props, context, children }) {
+function supersaw({ props }) {
   let saws = [];
   for (let i = 0; i < props.voices; ++i) {
     let detune = (i / props.voices) * props.spread;
@@ -12,5 +12,4 @@ function supersaw({ props, context, children }) {
   }
   return el.add(saws);
 }
-// It's easy!
 export default core.memo(supersaw);
