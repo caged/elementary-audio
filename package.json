@@ -6,5 +6,8 @@
   },
   "devDependencies": {
     "snowpack": "^3.3.7"
+  },
+  "dependencies": {
+    "@nick-thompson/elementary": "^0.10.1"
   }
 }
