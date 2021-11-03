@@ -8,8 +8,8 @@
 
   function toggleTransport() {
     hasPower = !hasPower;
-    dispatch("power", hasPower);
     powered.set(hasPower);
+    dispatch("power", hasPower);
   }
 </script>
 
