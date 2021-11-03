@@ -1,44 +1,20 @@
 <script>
   import { createEventDispatcher, setContext } from "svelte";
   import { ElementaryWebAudioRenderer as core } from "@nick-thompson/elementary";
-  import { gain } from "./store";
+  import { gain, powered } from "./store";
 
-  let actx;
-  let on = false;
+  let hasPower = false;
   const dispatch = createEventDispatcher();
 
-  core.on("load", (event) => {
-    dispatch("ready", event);
-  });
-
-  async function togglePower() {
-    on = !on;
-
-    if (on && !actx) {
-      actx = new (window.AudioContext || window.webkitAudioContext)();
-      const gainNode = actx.createGain();
-      gainNode.gain.value = $gain;
-
-      const node = await core.initialize(actx, {
-        numberOfInputs: 0,
-        numberOfOutputs: 1,
-        outputChannelCount: [2],
-      });
-
-      node.connect(gainNode);
-      dispatch("on", actx);
-    } else if (on && actx) {
-      actx.resume();
-      dispatch("resume", actx);
-    } else {
-      actx.suspend();
-      dispatch("suspend", actx);
-    }
+  function toggleTransport() {
+    hasPower = !hasPower;
+    dispatch("power", hasPower);
+    powered.set(hasPower);
   }
 </script>
 
-<button on:click={togglePower} class="transport" class:on>
-  {#if on}
+<button on:click={toggleTransport} class="transport" class:hasPower>
+  {#if hasPower}
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="h-5 w-5"
@@ -87,7 +63,7 @@
     color: #aaa;
   }
 
-  .transport.on svg {
+  .transport.hasPower svg {
     color: hsl(125, 90%, 40%);
   }
 </style>

@@ -1,11 +1,14 @@
 <script>
-  import TransportButton from "./TransportButton.svelte";
-  import VolumeSlider from "./VolumeSlider.svelte";
+  import { setContext } from "svelte";
+  import { powered } from "./store";
+
+  powered.subscribe((value) => {
+    console.log(value);
+  });
 </script>
 
 <div class="plugin">
-  <TransportButton />
-  <VolumeSlider />
+  <slot />
 </div>
 
 <style>
