@@ -1,13 +1,31 @@
 <script>
   import { createEventDispatcher, setContext } from "svelte";
-  import { ElementaryWebAudioRenderer as core } from "@nick-thompson/elementary";
-  import { powered, gain } from "./store";
+  import {
+    ElementaryWebAudioRenderer as core,
+    sugar,
+  } from "@nick-thompson/elementary";
+  import supersaw from "./supersaw";
+  import { powered, gain, voices, spread, frequency } from "./store";
 
   let actx;
   let gainNode;
+  let isReady = false;
+  let shouldPlay = false;
   const dispatch = createEventDispatcher();
 
+  $: {
+    if (isReady && $powered) {
+      const out = sugar(supersaw, {
+        voices: $voices,
+        spread: $spread,
+        frequency: $frequency,
+      });
+      core.render(out, out);
+    }
+  }
+
   core.on("load", (event) => {
+    isReady = true;
     dispatch("ready", event);
   });
 
@@ -34,11 +52,14 @@
 
       node.connect(gainNode);
       gainNode.connect(actx.destination);
+      shouldPlay = true;
     } else if (isPowered && actx) {
       console.log("resumed");
       actx.resume();
+      shouldPlay = true;
     } else if (!isPowered && actx) {
       console.log("paused");
+      shouldPlay = false;
       actx.suspend();
     }
   });
