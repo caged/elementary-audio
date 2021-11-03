@@ -71,7 +71,7 @@
 <div class="plugin">
   <div class="transport">
     <TransportButton />
-    <VolumeSlider />
+    <VolumeSlider bind:value={$gain} />
   </div>
   <div class="grid">
     <Slider min="100" max="600" label="Frequency" bind:value={$frequency} />

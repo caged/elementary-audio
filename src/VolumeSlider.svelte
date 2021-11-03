@@ -1,9 +1,5 @@
 <script>
   import { gain, powered } from "./store";
-
-  function setGain(e) {
-    gain.set(e.target.value);
-  }
 </script>
 
 <div class="volume">
@@ -24,7 +20,6 @@
     min="0"
     max="1"
     step="0.01"
-    on:change={setGain}
     bind:value={$gain}
     disabled={!$powered}
   />
