@@ -1,4 +1,7 @@
-import { ElementaryWebAudioRenderer, el } from "@nick-thompson/elementary";
+import {
+  ElementaryWebAudioRenderer as core,
+  el,
+} from "@nick-thompson/elementary";
 
 // From https://docs.elementary.audio/guides/writing_reusable_components#memoization
 function supersaw({ props, context, children }) {
@@ -10,4 +13,4 @@ function supersaw({ props, context, children }) {
   return el.add(saws);
 }
 // It's easy!
-export default ElementaryWebAudioRenderer.memo(supersaw);
+export default core.memo(supersaw);
