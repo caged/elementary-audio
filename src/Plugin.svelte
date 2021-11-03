@@ -1,9 +1,11 @@
 <script>
-  import PowerButton from "./PowerButton.svelte";
+  import TransportButton from "./TransportButton.svelte";
+  import VolumeSlider from "./VolumeSlider.svelte";
 </script>
 
 <div class="plugin">
-  <PowerButton />
+  <TransportButton />
+  <VolumeSlider />
 </div>
 
 <style>
