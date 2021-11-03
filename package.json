@@ -5,9 +5,11 @@
     "test": "echo \"This template does not include a test runner by default.\" && exit 1"
   },
   "devDependencies": {
+    "@snowpack/plugin-svelte": "^3.7.0",
     "snowpack": "^3.3.7"
   },
   "dependencies": {
-    "@nick-thompson/elementary": "^0.10.1"
+    "@nick-thompson/elementary": "^0.10.1",
+    "svelte": "^3.44.1"
   }
 }
