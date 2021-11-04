@@ -33,13 +33,13 @@ function create_fragment(ctx) {
 			div = element("div");
 			header = element("header");
 
-			header.innerHTML = `<h2 class="title svelte-sxt8ly">Unpleasent Noise Maker 3000</h2> 
-    <span class="info svelte-sxt8ly">Press play and slowly adjust volume</span>`;
+			header.innerHTML = `<h2 class="title svelte-1j0kuix">Unpleasent Noise Maker 3000</h2> 
+    <span class="info svelte-1j0kuix">Press play and slowly adjust volume</span>`;
 
 			t3 = space();
 			create_component(plugin.$$.fragment);
-			attr(header, "class", "svelte-sxt8ly");
-			attr(div, "class", "plugin svelte-sxt8ly");
+			attr(header, "class", "svelte-1j0kuix");
+			attr(div, "class", "plugin svelte-1j0kuix");
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
