@@ -2469,10 +2469,12 @@ function instance4($$self, $$props, $$invalidate) {
   let $spread;
   let $voices;
   let $powered;
+  let $gain;
   component_subscribe($$self, frequency, ($$value) => $$invalidate(0, $frequency = $$value));
   component_subscribe($$self, spread, ($$value) => $$invalidate(1, $spread = $$value));
   component_subscribe($$self, voices, ($$value) => $$invalidate(2, $voices = $$value));
   component_subscribe($$self, powered, ($$value) => $$invalidate(5, $powered = $$value));
+  component_subscribe($$self, gain, ($$value) => $$invalidate(11, $gain = $$value));
   let actx;
   let gainNode;
   let isReady = false;
@@ -2491,12 +2493,15 @@ function instance4($$self, $$props, $$invalidate) {
     if (isPowered && !actx) {
       console.log("powered on");
       actx = new (window.AudioContext || window.webkitAudioContext)();
+      gainNode = actx.createGain();
+      gainNode.gain.value = $gain;
       const node = await qg.initialize(actx, {
         numberOfInputs: 0,
         numberOfOutputs: 1,
         outputChannelCount: [2]
       });
-      node.connect(actx.destination);
+      node.connect(gainNode);
+      gainNode.connect(actx.destination);
       $$invalidate(4, shouldPlay = true);
     } else if (isPowered && actx) {
       console.log("resumed");
