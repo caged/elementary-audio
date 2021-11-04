@@ -1,5 +1,5 @@
 import EventEmitter from "events";
-import Application from "./src/Application.svelte";
+import Application from "./Application.svelte";
 
 const a = new EventEmitter();
 console.log(a);

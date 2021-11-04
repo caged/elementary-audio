@@ -1,6 +1,8 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 export default {
-  mount: {},
+  mount: {
+    src: "/",
+  },
   plugins: ["@snowpack/plugin-svelte"],
   routes: [
     /* Enable an SPA Fallback in development: */
@@ -9,10 +11,10 @@ export default {
   optimize: {
     bundle: true,
     minify: true,
+    target: "es2018",
     /* */
   },
   packageOptions: {
-    polyfillNode: false,
     /* ... */
   },
   devOptions: {
