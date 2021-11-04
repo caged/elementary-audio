@@ -11,8 +11,8 @@ export default {
   ],
   optimize: {
     bundle: true,
-    minify: true,
-    target: "es2017",
+    minify: false,
+    target: "es2018",
   },
   packageOptions: {
     polyfillNode: true,
