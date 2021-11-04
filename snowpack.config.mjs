@@ -7,14 +7,13 @@ export default {
     // {"match": "routes", "src": ".*", "dest": "/index.html"},
   ],
   optimize: {
-    bundle: false,
-    minify: false,
-    target: "es2020",
+    bundle: true,
+    minify: true,
+    target: "es2018",
     /* */
   },
   packageOptions: {
     polyfillNode: true,
-    source: "remote",
     /* ... */
   },
   devOptions: {
