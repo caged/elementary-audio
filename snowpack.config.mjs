@@ -13,6 +13,7 @@ export default {
     bundle: true,
     minify: true,
     target: "es2018",
+    treeshake: false,
   },
   packageOptions: {
     polyfillNode: true,
