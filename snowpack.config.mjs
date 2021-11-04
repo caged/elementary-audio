@@ -9,10 +9,7 @@ export default {
     /* Enable an SPA Fallback in development: */
     // {"match": "routes", "src": ".*", "dest": "/index.html"},
   ],
-  optimize: {
-    bundle: true,
-    target: "es2018",
-  },
+  optimize: {},
   packageOptions: {
     polyfillNode: true,
     /* ... */
