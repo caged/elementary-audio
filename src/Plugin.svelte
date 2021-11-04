@@ -47,12 +47,12 @@
       shouldPlay = true;
     } else if (isPowered && actx) {
       console.log("resumed");
-      actx.resume();
+      await actx.resume();
       shouldPlay = true;
     } else if (!isPowered && actx) {
       console.log("paused");
       shouldPlay = false;
-      actx.suspend();
+      await actx.suspend();
     }
   });
 
