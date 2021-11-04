@@ -12,7 +12,7 @@ export default {
     /* */
   },
   packageOptions: {
-    polyfillNode: true,
+    polyfillNode: false,
     /* ... */
   },
   devOptions: {
