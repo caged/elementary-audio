@@ -7,7 +7,8 @@ export default {
   optimize: {
     bundle: true,
     minify: true,
-    target: "es2018"
+    target: "es2018",
+    treeshake: false
   },
   packageOptions: {
     polyfillNode: true
