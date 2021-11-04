@@ -12,6 +12,12 @@
 </div>
 
 <style>
+  :global(body) {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+      sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  }
   header {
     display: flex;
     justify-content: space-between;
@@ -35,7 +41,8 @@
     color: #aaa;
   }
   .plugin {
+    margin: 20px;
     width: 600px;
-    background-color: #f7f7f7;
+    background-color: #f1f1f1;
   }
 </style>
