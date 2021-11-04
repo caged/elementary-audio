@@ -3,9 +3,9 @@ export default {
   plugins: ["@snowpack/plugin-svelte"],
   routes: [],
   optimize: {
-    bundle: false,
-    minify: false,
-    target: "es2020"
+    bundle: true,
+    minify: true,
+    target: "es2018"
   },
   packageOptions: {
     polyfillNode: true
