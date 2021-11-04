@@ -2503,6 +2503,7 @@ function instance4($$self, $$props, $$invalidate) {
       node.connect(gainNode);
       gainNode.connect(actx.destination);
       $$invalidate(4, shouldPlay = true);
+      console.log(node, gainNode, actx);
     } else if (isPowered && actx) {
       console.log("resumed");
       actx.resume();
