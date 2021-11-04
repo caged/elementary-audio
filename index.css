@@ -1,0 +1,137 @@
+/* build/src/Application.svelte.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Helvetica,
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji";
+}
+header.svelte-u9fkrg {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+}
+.title.svelte-u9fkrg {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.4ch;
+}
+.info.svelte-u9fkrg {
+  font-size: 12px;
+  color: #aaa;
+}
+.plugin.svelte-u9fkrg {
+  margin: 20px;
+  width: 600px;
+  background-color: #f1f1f1;
+}
+
+/* build/src/Plugin.svelte.css */
+.transport.svelte-13hrttv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 10px 20px;
+  background-color: #eee;
+}
+.grid.svelte-13hrttv {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 20px;
+  gap: 10px;
+  justify-content: space-evenly;
+  justify-items: center;
+  align-content: space-evenly;
+  align-items: center;
+}
+
+/* build/src/TransportButton.svelte.css */
+button.svelte-mooze2.svelte-mooze2 {
+  cursor: pointer;
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.transport.svelte-mooze2 svg.svelte-mooze2 {
+  width: 24px;
+  height: 24px;
+  color: #656565;
+}
+.transport.svelte-mooze2:hover svg.svelte-mooze2 {
+  color: #000;
+}
+.transport.hasPower.svelte-mooze2 svg.svelte-mooze2 {
+  color: hsl(125, 90%, 40%);
+}
+
+/* build/src/VolumeSlider.svelte.css */
+#volume.svelte-8ykzsl {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.icon.svelte-8ykzsl {
+  width: 12px;
+  height: 12px;
+  color: #999;
+  margin-top: 4px;
+}
+#volume.svelte-8ykzsl .slider input {
+  background-color: #999 !important;
+}
+#volume.svelte-8ykzsl .slider input::-webkit-slider-thumb {
+  background-color: #444 !important;
+}
+#volume.svelte-8ykzsl .slider input::-moz-slider-thumb {
+  background-color: #444 !important;
+}
+
+/* build/src/Slider.svelte.css */
+.slider.svelte-totno1 input.svelte-totno1 {
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  background: #ddd;
+  height: 6px;
+  border-radius: 12px;
+}
+.slider.svelte-totno1 input.svelte-totno1::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 6px;
+  height: 12px;
+  border-radius: 12px;
+  background: hsl(125, 90%, 40%);
+  cursor: pointer;
+}
+.slider.svelte-totno1 input.svelte-totno1::-moz-range-thumb {
+  background: hsl(125, 90%, 40%);
+  cursor: pointer;
+}
+label.svelte-totno1.svelte-totno1 {
+  display: block;
+  font-size: 12px;
+  color: #555;
+}
+.value.svelte-totno1.svelte-totno1 {
+  font-family: monospace;
+  vertical-align: top;
+  color: #555;
+}

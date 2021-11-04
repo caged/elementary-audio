@@ -1,8 +1,12 @@
 export default {
   mount: {},
-  plugins: ["@snowpack/plugin-svelte", "@snowpack/plugin-webpack"],
+  plugins: ["@snowpack/plugin-svelte"],
   routes: [],
-  optimize: {},
+  optimize: {
+    bundle: true,
+    minify: false,
+    target: "es2020"
+  },
   packageOptions: {
     polyfillNode: true
   },
