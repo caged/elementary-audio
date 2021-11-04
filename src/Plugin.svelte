@@ -33,10 +33,8 @@
 
       actx = new (window.AudioContext || window.webkitAudioContext)();
 
-      gainNode = actx.createGain();
-      gainNode.gain.value = $gain;
-
-      console.log(gainNode, actx);
+      // gainNode = actx.createGain();
+      // gainNode.gain.value = $gain;
 
       const node = await core.initialize(actx, {
         numberOfInputs: 0,
@@ -44,8 +42,8 @@
         outputChannelCount: [2],
       });
 
-      node.connect(gainNode);
-      gainNode.connect(actx.destination);
+      node.connect(actx.destination);
+      // gainNode.connect(actx.destination);
       shouldPlay = true;
     } else if (isPowered && actx) {
       console.log("resumed");
