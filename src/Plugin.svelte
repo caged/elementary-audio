@@ -45,6 +45,7 @@
       node.connect(gainNode);
       gainNode.connect(actx.destination);
       shouldPlay = true;
+      console.log(node, gainNode, actx);
     } else if (isPowered && actx) {
       console.log("resumed");
       actx.resume();
