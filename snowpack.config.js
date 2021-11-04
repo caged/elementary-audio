@@ -8,7 +8,8 @@ export default {
     target: "es2018"
   },
   packageOptions: {
-    polyfillNode: true
+    external: ["events"],
+    polyfillNode: false
   },
   devOptions: {},
   buildOptions: {
