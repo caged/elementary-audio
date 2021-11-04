@@ -35,6 +35,7 @@
 
       gainNode = actx.createGain();
       gainNode.gain.value = $gain;
+      gainNode.connect(actx.destination);
 
       const node = await core.initialize(actx, {
         numberOfInputs: 0,
@@ -43,7 +44,6 @@
       });
 
       node.connect(gainNode);
-      gainNode.connect(actx.destination);
       shouldPlay = true;
     } else if (isPowered && actx) {
       console.log("resumed");
