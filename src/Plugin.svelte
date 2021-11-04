@@ -1,5 +1,5 @@
 <script>
-  import { createEventDispatcher, setContext } from "svelte";
+  import { createEventDispatcher, setContext, onMount } from "svelte";
   import {
     ElementaryWebAudioRenderer as core,
     sugar,
@@ -16,7 +16,24 @@
   let shouldPlay = false;
   const dispatch = createEventDispatcher();
 
+  onMount(async () => {
+    actx = new (window.AudioContext || window.webkitAudioContext)();
+
+    gainNode = actx.createGain();
+    gainNode.gain.value = $gain;
+    gainNode.connect(actx.destination);
+
+    const node = await core.initialize(actx, {
+      numberOfInputs: 0,
+      numberOfOutputs: 1,
+      outputChannelCount: [2],
+    });
+
+    node.connect(gainNode);
+  });
+
   core.on("load", (event) => {
+    console.log("ready");
     isReady = true;
     dispatch("ready", event);
   });
@@ -29,21 +46,7 @@
 
   powered.subscribe(async (isPowered) => {
     if (isPowered && !actx) {
-      console.log("powered on cool");
-
-      actx = new (window.AudioContext || window.webkitAudioContext)();
-
-      gainNode = actx.createGain();
-      gainNode.gain.value = $gain;
-      gainNode.connect(actx.destination);
-
-      const node = await core.initialize(actx, {
-        numberOfInputs: 0,
-        numberOfOutputs: 1,
-        outputChannelCount: [2],
-      });
-
-      node.connect(gainNode);
+      console.log("powered on");
       shouldPlay = true;
     } else if (isPowered && actx) {
       console.log("resumed");
@@ -56,21 +59,30 @@
     }
   });
 
-  $: {
-    if (isReady && $powered && shouldPlay) {
-      const out = sugar(supersaw, {
-        voices: $voices,
-        spread: $spread,
-        frequency: $frequency,
-      });
-      core.render(out, out);
-    }
+  function powerUp() {
+    const out = sugar(supersaw, {
+      voices: $voices,
+      spread: $spread,
+      frequency: $frequency,
+    });
+    core.render(out, out);
   }
+
+  // $: {
+  //   if (isReady && $powered && shouldPlay) {
+  //     const out = sugar(supersaw, {
+  //       voices: $voices,
+  //       spread: $spread,
+  //       frequency: $frequency,
+  //     });
+  //     core.render(out, out);
+  //   }
+  // }
 </script>
 
 <div class="plugin">
   <div class="transport">
-    <TransportButton />
+    <TransportButton on:power={powerUp} />
     <VolumeSlider />
   </div>
   <div class="grid">
