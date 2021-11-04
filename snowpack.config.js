@@ -1,8 +1,7 @@
 export default {
   mount: {},
   plugins: [
-    "@snowpack/plugin-svelte",
-    "@snowpack/plugin-webpack"
+    "@snowpack/plugin-svelte"
   ],
   routes: [],
   optimize: {
