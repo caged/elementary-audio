@@ -4,4 +4,6 @@ let app = new Application({
   target: document.body,
 });
 
+console.log("i am new");
+
 export default app;
