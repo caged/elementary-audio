@@ -7,7 +7,7 @@ export default {
     // {"match": "routes", "src": ".*", "dest": "/index.html"},
   ],
   optimize: {
-    bundle: true,
+    bundle: false,
     minify: false,
     target: "es2020",
     /* */
