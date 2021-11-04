@@ -1,8 +1,9 @@
 <script>
   import { gain, powered } from "./store";
+  import Slider from "./Slider";
 </script>
 
-<div class="volume">
+<div id="volume">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     class="icon"
@@ -15,13 +16,13 @@
       clip-rule="evenodd"
     />
   </svg>
-  <input
-    type="range"
+  <Slider
     min="0"
     max="1"
     step="0.01"
-    bind:value={$gain}
+    valueVisible={false}
     disabled={!$powered}
+    bind:value={$gain}
   />
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +39,7 @@
 </div>
 
 <style>
-  .volume {
+  #volume {
     display: inline-flex;
     align-items: center;
     gap: 5px;
@@ -47,6 +48,19 @@
   .icon {
     width: 12px;
     height: 12px;
-    color: #444;
+    color: #999;
+    margin-top: 4px;
+  }
+
+  #volume :global(.slider input) {
+    background-color: #999 !important;
+  }
+
+  #volume :global(.slider input::-webkit-slider-thumb) {
+    background-color: #444 !important;
+  }
+
+  #volume :global(.slider input::-moz-slider-thumb) {
+    background-color: #444 !important;
   }
 </style>

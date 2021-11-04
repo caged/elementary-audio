@@ -71,7 +71,7 @@
 <div class="plugin">
   <div class="transport">
     <TransportButton />
-    <VolumeSlider bind:value={$gain} />
+    <VolumeSlider />
   </div>
   <div class="grid">
     <Slider min="100" max="600" label="Frequency" bind:value={$frequency} />
@@ -87,7 +87,7 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #e8e8e8;
-    padding: 10px;
+    padding: 10px 20px;
     background-color: #eee;
   }
 
@@ -95,5 +95,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 20px;
+    gap: 10px;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+    align-items: center;
   }
 </style>

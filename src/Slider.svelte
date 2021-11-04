@@ -1,14 +1,21 @@
 <script>
-  export let label;
+  export let label = null;
   export let min;
   export let max;
   export let value;
+  export let step = 1;
+  export let disabled = false;
+  export let valueVisible = true;
 </script>
 
 <div class="slider">
-  <label for={label}>{label}</label>
-  <input name={label} type="range" {min} {max} bind:value />
-  <span class="value">{value}</span>
+  {#if label}
+    <label for={label}>{label}</label>
+  {/if}
+  <input name={label} type="range" {min} {max} {step} {disabled} bind:value />
+  {#if valueVisible}
+    <span class="value">{value}</span>
+  {/if}
 </div>
 
 <style>
@@ -18,15 +25,15 @@
     outline: none;
     background: #ddd;
     height: 6px;
-    border-radius: 10px;
+    border-radius: 12px;
   }
 
   .slider input::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 10px;
-    height: 10px;
-    border-radius: 10px;
+    width: 6px;
+    height: 12px;
+    border-radius: 12px;
     background: hsl(125, 90%, 40%);
     cursor: pointer;
   }

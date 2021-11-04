@@ -56,11 +56,11 @@
   .transport svg {
     width: 24px;
     height: 24px;
-    color: #ccc;
+    color: #656565;
   }
 
   .transport:hover svg {
-    color: #aaa;
+    color: #000;
   }
 
   .transport.hasPower svg {
