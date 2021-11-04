@@ -1,5 +1,8 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 export default {
+  alias: {
+    events: "./node_modules/events/events.js",
+  },
   mount: {
     src: "/",
   },
