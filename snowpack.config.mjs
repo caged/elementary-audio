@@ -3,6 +3,7 @@ export default {
   mount: {},
   plugins: [
     "@snowpack/plugin-svelte",
+    "@snowpack/plugin-webpack",
     /* ... */
   ],
   routes: [
