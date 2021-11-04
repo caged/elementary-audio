@@ -14,6 +14,7 @@ export default {
   },
   packageOptions: {
     polyfillNode: true,
+    source: "remote",
     /* ... */
   },
   devOptions: {
