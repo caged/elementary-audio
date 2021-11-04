@@ -33,7 +33,7 @@ function create_fragment(ctx) {
 			div = element("div");
 			header = element("header");
 
-			header.innerHTML = `<h2 class="title svelte-1j0kuix">Unpleasent Noise Maker 3000</h2> 
+			header.innerHTML = `<h2 class="title svelte-1j0kuix">Unpleasant Noise Maker 3000</h2> 
     <span class="info svelte-1j0kuix">Press play and slowly adjust volume</span>`;
 
 			t3 = space();
