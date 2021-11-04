@@ -7,7 +7,7 @@ export default {
     minify: true
   },
   packageOptions: {
-    polyfillNode: true
+    polyfillNode: false
   },
   devOptions: {},
   buildOptions: {
