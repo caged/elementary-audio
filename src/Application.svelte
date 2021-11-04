@@ -4,7 +4,7 @@
 
 <div class="plugin">
   <header>
-    <h2 class="title">Unpleasent Noise Maker 3000</h2>
+    <h2 class="title">Unpleasant Noise Maker 3000</h2>
     <span class="info">Press play and slowly adjust volume</span>
   </header>
 
