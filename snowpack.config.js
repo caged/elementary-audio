@@ -6,7 +6,9 @@ export default {
     bundle: true,
     minify: true
   },
-  packageOptions: {},
+  packageOptions: {
+    polyfillNode: true
+  },
   devOptions: {},
   buildOptions: {
     baseUrl: "./"
