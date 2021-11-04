@@ -2505,12 +2505,12 @@ function instance4($$self, $$props, $$invalidate) {
       $$invalidate(4, shouldPlay = true);
     } else if (isPowered && actx) {
       console.log("resumed");
-      actx.resume();
+      await actx.resume();
       $$invalidate(4, shouldPlay = true);
     } else if (!isPowered && actx) {
       console.log("paused");
       $$invalidate(4, shouldPlay = false);
-      actx.suspend();
+      await actx.suspend();
     }
   });
   function slider0_value_binding(value) {
