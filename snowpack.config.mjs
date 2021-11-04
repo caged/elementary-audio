@@ -13,7 +13,8 @@ export default {
     /* */
   },
   packageOptions: {
-    polyfillNode: true,
+    external: ["events"],
+    polyfillNode: false,
     /* ... */
   },
   devOptions: {

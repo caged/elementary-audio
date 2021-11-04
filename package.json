@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@nick-thompson/elementary": "^0.10.1",
+    "events": "^3.3.0",
     "svelte": "^3.44.1"
   }
 }
