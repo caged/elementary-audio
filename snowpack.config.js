@@ -3,7 +3,7 @@ export default {
   plugins: ["@snowpack/plugin-svelte"],
   routes: [],
   optimize: {
-    bundle: true,
+    bundle: false,
     minify: false,
     target: "es2020"
   },

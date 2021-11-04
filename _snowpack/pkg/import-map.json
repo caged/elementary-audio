@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "@nick-thompson/elementary": "./@nick-thompson/elementary.js",
+    "svelte": "./svelte.js",
+    "svelte/internal": "./svelte/internal.js",
+    "svelte/store": "./svelte/store.js"
+  }
+}
