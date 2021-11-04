@@ -4,7 +4,8 @@ export default {
   routes: [],
   optimize: {
     bundle: true,
-    minify: true
+    minify: true,
+    target: "es2018"
   },
   packageOptions: {},
   devOptions: {},
