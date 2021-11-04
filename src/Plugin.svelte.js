@@ -221,6 +221,7 @@ function instance($$self, $$props, $$invalidate) {
 			actx = new (window.AudioContext || window.webkitAudioContext)();
 			gainNode = actx.createGain();
 			gainNode.gain.value = $gain;
+			gainNode.connect(actx.destination);
 
 			const node = await core.initialize(actx, {
 				numberOfInputs: 0,
@@ -229,7 +230,6 @@ function instance($$self, $$props, $$invalidate) {
 			});
 
 			node.connect(gainNode);
-			gainNode.connect(actx.destination);
 			$$invalidate(4, shouldPlay = true);
 		} else if (isPowered && actx) {
 			console.log("resumed");
