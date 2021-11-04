@@ -19,7 +19,7 @@
     padding: 20px;
     margin: 0;
     text-align: center;
-    background-color: #444;
+    background-color: #333;
     color: #fff;
   }
   .title {
