@@ -1,3 +1,4 @@
+import { EventEmitter } from "events";
 import Application from "./src/Application.svelte";
 
 let app = new Application({
