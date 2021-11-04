@@ -29,7 +29,7 @@
 
   powered.subscribe(async (isPowered) => {
     if (isPowered && !actx) {
-      console.log("powered on");
+      console.log("powered on cool");
 
       actx = new (window.AudioContext || window.webkitAudioContext)();
 

@@ -10,7 +10,8 @@ export default {
     /* */
   },
   packageOptions: {
-    polyfillNode: true,
+    source: "remote",
+    // polyfillNode: false,
     /* ... */
   },
   devOptions: {
