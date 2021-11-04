@@ -4,12 +4,9 @@ export default {
   routes: [],
   optimize: {
     bundle: true,
-    minify: true,
-    target: "es2018"
+    minify: true
   },
-  packageOptions: {
-    polyfillNode: false
-  },
+  packageOptions: {},
   devOptions: {},
   buildOptions: {
     baseUrl: "./"
