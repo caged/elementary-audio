@@ -2495,6 +2495,7 @@ function instance4($$self, $$props, $$invalidate) {
       actx = new (window.AudioContext || window.webkitAudioContext)();
       gainNode = actx.createGain();
       gainNode.gain.value = $gain;
+      console.log(gainNode, actx);
       const node = await qg.initialize(actx, {
         numberOfInputs: 0,
         numberOfOutputs: 1,
@@ -2503,7 +2504,6 @@ function instance4($$self, $$props, $$invalidate) {
       node.connect(gainNode);
       gainNode.connect(actx.destination);
       $$invalidate(4, shouldPlay = true);
-      console.log(node, gainNode, actx);
     } else if (isPowered && actx) {
       console.log("resumed");
       actx.resume();
