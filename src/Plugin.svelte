@@ -37,8 +37,8 @@
 
     setTimeout(() => {
       node.connect(gainNode);
-      console.log("connected here");
-    }, 1000);
+      console.log("timeout fired");
+    }, 100);
   });
 
   gain.subscribe((value) => {
