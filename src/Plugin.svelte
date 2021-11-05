@@ -59,24 +59,13 @@
     }
   });
 
-  // function powerUp() {
-  //   const out = sugar(supersaw, {
-  //     voices: $voices,
-  //     spread: $spread,
-  //     frequency: $frequency,
-  //   });
-  //   core.render(out, out);
-  // }
-
-  $: {
-    if (isReady && $powered && shouldPlay) {
-      const out = sugar(supersaw, {
-        voices: $voices,
-        spread: $spread,
-        frequency: $frequency,
-      });
-      core.render(out, out);
-    }
+  $: if (isReady && $powered && shouldPlay) {
+    const out = sugar(supersaw, {
+      voices: $voices,
+      spread: $spread,
+      frequency: $frequency,
+    });
+    core.render(out, out);
   }
 </script>
 
