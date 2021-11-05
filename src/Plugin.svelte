@@ -19,9 +19,9 @@
   onMount(async () => {
     actx = new (window.AudioContext || window.webkitAudioContext)();
 
-    // gainNode = actx.createGain();
-    // gainNode.gain.value = $gain;
-    // gainNode.connect(actx.destination);
+    gainNode = actx.createGain();
+    gainNode.gain.value = $gain;
+    gainNode.connect(actx.destination);
 
     const node = await core.initialize(actx, {
       numberOfInputs: 0,
@@ -29,7 +29,7 @@
       outputChannelCount: [2],
     });
 
-    node.connect(actx.destination);
+    node.connect(gainNode);
   });
 
   core.on("load", (event) => {
