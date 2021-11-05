@@ -16,6 +16,12 @@
   let shouldPlay = false;
   const dispatch = createEventDispatcher();
 
+  core.on("load", (event) => {
+    console.log("ready");
+    isReady = true;
+    dispatch("ready", event);
+  });
+
   onMount(async () => {
     actx = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -29,13 +35,10 @@
       outputChannelCount: [2],
     });
 
-    node.connect(gainNode);
-  });
-
-  core.on("load", (event) => {
-    console.log("ready");
-    isReady = true;
-    dispatch("ready", event);
+    setTimeout(() => {
+      node.connect(gainNode);
+      console.log("connected here");
+    }, 1000);
   });
 
   gain.subscribe((value) => {
